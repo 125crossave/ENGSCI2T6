@@ -1,0 +1,309 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{MnSymbol}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{fullwidth}
+\usepackage{graphicx}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage[hidelinks, urlcolor=blue, linkcolor=blue, colorlinks=true]{hyperref} 
+\DeclareUnicodeCharacter{2212}{-}
+
+\title{Medici Solutions (incomplete)}
+\author{Rizzmaster9000}
+\date{2023W}
+
+\begin{document}
+\maketitle
+\section*{Chapter 3}
+\setlength{\parindent}{0pt}
+2. a) If $m = n$, and \textbf{AB} is invertible, \\
+($\textbf{AB})^{-1}\textbf{AB}$ = \textbf{I}\\
+$(\textbf{B}^{-1}\textbf{A}^{-1})\textbf{AB} = \textbf{I}$\\
+$(\textbf{A}^{-1}\textbf{B}^{-1})(\textbf{B}^{-1}\textbf{A}^{-1})\textbf{AB} = \textbf{A}^{-1}\textbf{B}^{-1}$\\
+$(\textbf{A}^{-1}\textbf{B}^{-1}\textbf{B}^{-1}\textbf{A}^{-1})\textbf{AB}(\textbf{BA}) = (\textbf{A}^{-1}\textbf{B}^{-1})(\textbf{BA})$\\
+Since any invertible square matrix \textbf{X} has the property $\textbf{X}^{-1}\textbf{X} = \textbf{XX}^{-1} = \textbf{I}$,  the left side simplifies to \textbf{I} so that\\ \textbf{I} = ($\textbf{A}^{-1}\textbf{B}^{-1})\textbf{BA}$, i.e., $\textbf{A}^{-1}\textbf{B}^{-1}$ is the inverse of \textbf{BA}.\\
+b) Note that $m < n$ because if $m > n$ then by the Corollary to Theorem V, \textbf{Bx} = \textbf{0} has nontrivial solutions and thus \textbf{ABx} = \textbf{0} has nontrivial solutions, i.e., \textbf{AB} is not invertible. But if $m < n$, then \textbf{Ax} = \textbf{0} has nontrivial solutions and thus \textbf{BAx} = \textbf{0} also has nontrivial solutions, i.e., \textbf{BA} is not invertible.\\
+
+3. If  $m < n$ then \textbf{Ax} = \textbf{0} has nontrivial solutions by the Corollary to Theorem V. But then \textbf{LAx} = \textbf{0} also has nontrivial solutions, so \textbf{LA} = \textbf{I} is impossible.\\
+
+4. Yes\\
+Putting the system in matrix form (\textbf{Ax} = \textbf{b}), we have\\
+$\begin{bmatrix} 1 & -3 & 2\\2 & 1 & -1\\3&-2&1\end{bmatrix}\begin{bmatrix} x \\ y \\ z\end{bmatrix} = \begin{bmatrix} 4 \\ 1 \\ 5\end{bmatrix}$, so rref$\begin{bmatrix} \textbf{A} | \textbf{b}\end{bmatrix}$ = $\begin{bmatrix} 1 & 0 & -1/7 & 1\\0 & 1 & -5/7 & -1\\0&0&0&0\end{bmatrix}$, which has a zero row and hence infinite solutions. \\
+
+5. Yes\\
+\textbf{A} is square and has a unique solution to \textbf{Ax} = \textbf{b} for at least one \textbf{b} $\in$ $^3$$\mathbb{R}$, so by the Corollary to Theorem VI it is invertible, i.e., a product of elementary matrices.\\
+
+      6. No\\
+      \textbf{A} cannot be invertible because it does not have a unique solution to \textbf{Ax} = \textbf{b} for every \textbf{b} $\in$ $^3$$\mathbb{R}$.\\
+
+    7. See 2b).
+
+    \section*{Chapter 4}
+    \setlength{\parindent}{0pt}
+    1. No\\
+    Axiom MIV fails, since $1(x_1, x_2) \neq (x_1, x_2)$ when $x_2 \neq 0$.
+
+    \section*{Chapter 5}
+    \setlength{\parindent}{0pt}
+    1. a) No\\
+    SII fails, consider $\begin{bmatrix} 1 & 0 \\ 0 & 1\end{bmatrix}$, $\begin{bmatrix} 0 & 1 \\ 1 & 0\end{bmatrix}$.\\
+    b) Yes\\
+    SI: $f$ = 0 is the zero function.\\
+    SII: \(\int_{0}^{1} (f + g)(x)\,dx\) = 0 for all $f, g \in \textit{U}$.\\
+    SIII: If \(\int_{0}^{1} f(x) \,dx\) = 0 then $\lambda$\(\int_{0}^{1} f(x) \,dx\) = 0 for all $\lambda \in \mathbb{R}$ and $f \in \textit{U}$.\\
+
+    2. $\implies$ If i) is true, \textit{U} is not a subspace because SI fails. Hence \textit{U} must be nonempty. Further, if ii) is true, we can set $\lambda$ = 1 and note that all $\textbf{u}_1 + \textbf{u}_2$ are in \textit{U} (i.e. SII holds), and we can also set $\textbf{x}_1 = \textbf{0}$ and note that all $\lambda\textbf{u}_2$ are in \textit{U} (i.e. SIII holds).\\
+  $\impliedby$ If \textit{U} is a subspace, it contains the zero vector (SI) and hence is nonempty. Further, for all $\textbf{u}_1, \textbf{u}_2 \in \textit{U}$, \textit{U} must contain all $\textbf{u}_1 + \lambda\textbf{u}_2$ by SII and SIII.\\
+
+    4. No \\
+    SII fails, see 1a).\\
+
+    5. No \\
+    SII fails, consider $\begin{bmatrix} 1 \\ 0\end{bmatrix}$, $\begin{bmatrix} 0 \\ 1\end{bmatrix}$.\\
+
+    8. \textbf{u} = $\frac{1}{2}((\textbf{u} + \textbf{v}) + -(\textbf{v} + \textbf{w}) + (\textbf{w} + \textbf{u}))$\\
+    \textbf{v} = $\frac{1}{2}((\textbf{u} + \textbf{v}) + (\textbf{v} + \textbf{w}) + -(\textbf{w} + \textbf{u}))$\\
+    \textbf{w} = $\frac{1}{2}(-(\textbf{u} + \textbf{v}) + (\textbf{v} + \textbf{w}) + (\textbf{w} + \textbf{u}))$\\
+    Thus, span$\{\textbf{u}, \textbf{v}, \textbf{w}\}$ $\supseteq$ span$\{\textbf{u} + \textbf{v}, \textbf{v} + \textbf{w}, \textbf{w} + \textbf{u}\}$.\\
+    \textbf{u} + \textbf{v} = \textbf{u} + \textbf{v}\\
+    \textbf{v} + \textbf{w} = \textbf{v} + \textbf{w}\\
+    \textbf{w} + \textbf{u} = \textbf{w} + \textbf{u}\\
+    Thus, span$\{\textbf{u}, \textbf{v}, \textbf{w}\}$ $\subseteq$ span$\{\textbf{u} + \textbf{v}, \textbf{v} + \textbf{w}, \textbf{w} + \textbf{u}\}$.\\
+
+    9. Yes\\
+    0(1,1) + 1(1, 2) = (1, 2).\\
+
+    10. No\\
+    Axiom SII fails, consider $\begin{bmatrix} 1 \\ 1\\ 0\end{bmatrix}, \begin{bmatrix} 0 \\ 0\\ 1\end{bmatrix}$.\\
+
+    11. $\mathbb{R}$: SI: 0 $\in$ $\mathbb{R}$\\
+    SII: For all \textbf{x}, \textbf{y} $\in$ $\mathbb{R}$, \textbf{x} + \textbf{y} $\in$ $\mathbb{R}$\\
+    SIII: For all \textbf{x} $\in$ $\mathbb{R}$ and any scalar $\lambda$ $\in$ $\mathbb{R}$, $\lambda\textbf{x}$ $\in$ $\mathbb{R}$\\
+  $\{0\}$: SI: 0 $\in$ $\mathbb{R}$\\
+    SII: 0 + 0 $\in$ $\{0\}$\\
+    SIII: For any scalar $\lambda$ $\in$ $\mathbb{R}$, $\lambda0$ $\in$ $\{0\}$\\
+    For any other finite non-empty set of $n$ elements $\{x_1, x_2, ..., x_n\}$ in $\mathbb{R}$, SIII fails because some scalar $\lambda$ $\in$ $\mathbb{R}$ exists such that $\lambda x_1$ is not in the set.
+
+    \section*{Chapter 6}
+    \setlength{\parindent}{0pt}
+    1. $\implies$ If $\{p, q, pq\}$ is linearly independent, $\lambda_1p$ + $\lambda_2q$ + $\lambda_3pq$ $= \textbf{0}$ has only the trivial solution. But if deg$p$ = 0, $\lambda_1p + \lambda_2q + \lambda_3pq =\textbf{0}$ has the solution $\lambda_1 = 0, \lambda_2 = p, \lambda_3 = -1$ which is a nontrivial solution. Likewise if deg$q$ = 0, $\lambda_1p + \lambda_2q + \lambda_3pq = \textbf{0}$ has the solution $\lambda_1 = q, \lambda_2 = 0, \lambda_3 = -1$. Hence deg$p$, deg$q$ $\neq$ 0, i.e., deg$p$, deg$q$ $\geq$ 1 is required.\\
+  $\impliedby$ If deg$p$, deg$q$ $\geq$ 1, then deg$(-\lambda_3pq) >$ deg($\lambda_1$$p$ + $\lambda_2$$q$) for any choice of $\lambda_1, \lambda_2, \lambda_3$, and since it was also given that $\{p, q\}$ is linearly independent, $\lambda_1 +\lambda_2q$ + $\lambda_3pq$ $= \textbf{0}$ has only the trivial solution, i.e., $\{p, q, pq\}$ is linearly independent.\\
+
+    2. Reducing \textit{U} to its basis, we have \textit{U} = span$\{\textbf{v}_1, ..., \textbf{v}_n\}$ and \textit{W} = span$\{\textbf{v}_1, ..., \textbf{v}_n, \textbf{v}\}$, where $1 \leq$ $n$ $\leq k$.\\
+    If \textbf{v} $\in$ span$\{\textbf{v}_1, ..., \textbf{v}_n\}$ = \textit{U}, then \textit{W} can also be reduced to its basis so that \textit{W} = span$\{\textbf{v}_1, ..., \textbf{v}_n\}$, i.e., \textit{U} = \textit{W} and thus dim\textit{U} = dim\textit{W}.\\
+    If \textbf{v} $\notin$ span$\{\textbf{v}_1, ..., \textbf{v}_n\} = \textit{U}$, then $\{\textbf{v}_1, ..., \textbf{v}_n, \textbf{v}\}$ is a linearly independent set which spans \textit{W} and is hence a basis for \textit{W}. In this case, dim\textit{W} = n + 1, i.e., dim\textit{W} = dim\textit{U} + 1. \\
+    As no possibilities other than the two described above exist, we conclude that either dim\textit{U} = dim\textit{W} or dim\textit{U} + 1 = dim\textit{W}.\\
+
+    3. Since $\{\textbf{v}_1, \textbf{v}_2, \textbf{v}_3, \textbf{v}_4\}$ is linearly independent, $\lambda_1\textbf{v}_1 + \lambda_2\textbf{v}_2 + \lambda_3\textbf{v}_3 + \lambda_4\textbf{v}_4$ = \textbf{0} has only the trivial solution.\\
+    But $\beta_1\textbf{v}_1 + \beta_2(\textbf{v}_1 + \textbf{v}_2) + \beta_3(\textbf{v}_1 + \textbf{v}_2 + \textbf{v}_3) + \beta_4(\textbf{v}_1 + \textbf{v}_2 + \textbf{v}_3 + \textbf{v}_4)$ = \textbf{0} is equivalent to\\
+    ($\beta_1 + \beta_2 + \beta_3 + \beta_4$)$\textbf{v}_1$ + ($\beta_2 + \beta_3 + \beta_4$)$\textbf{v}_2 + (\beta_3 + \beta_4)\textbf{v}_3 + \beta_4\textbf{v}_4 = \textbf{0}$, which implies\\
+  $\beta_1 + \beta_2 + \beta_3 + \beta_4$ = 0\\
+  $\beta_2 + \beta_3 + \beta_4$ = 0\\
+  $\beta_3 + \beta_4$ = 0\\
+  $\beta_4$ = 0, i.e., $\beta_1 = \beta_2 = \beta_3 = \beta_4$ = 0. Thus, $\{\textbf{v}_1, \textbf{v}_1 + \textbf{v}_2, \textbf{v}_1 + \textbf{v}_2 + \textbf{v}_3, \textbf{v}_1 + \textbf{v}_2 + \textbf{v}_3 + \textbf{v}_4\}$ is linearly independent.\\
+
+    5. If \textit{V} is an $n$-dimensional vector space, where $n$ is finite, then any nonzero vector \textbf{v} in \textit{V} is linearly independent of $n - 1$ other nonzero vectors in \textit{V}. Hence a basis for \textit{V} can be constructed by adding \textit{n} - 1 nonzero vectors to the set $\{\textbf{v}\}$ such that each vector in the set cannot be produced as a linear combination of other vectors in the set.\\
+
+    6. If \textbf{A} is not invertible, then its nullspace (the set of vectors such that \textbf{Av} = \textbf{0}) has a dimension of at least one. But since $\{\textbf{v}_1, ..., \textbf{v}_n\}$ is a linearly independent set containing $n$ vectors, and \textbf{A}'s rowspace (the orthogonal complement to its nullspace) has a dimension of less than $n$, there exists at least one $\textbf{v}_i \in$ $\{\textbf{v}_1, ..., \textbf{v}_n\}$ such that $\textbf{v}_i$ is in the nullspace of \textbf{A}, so at least one of $\{\textbf{u}_1, ..., \textbf{u}_n\}$ will end up being \textbf{0}. Since any set containing \textbf{0} is linearly dependent, we conclude that $\{\textbf{u}_1, ..., \textbf{u}_n\}$ must be linearly dependent.\\
+
+    7. No\\
+    The set is not a basis if $f_0$ = 0.\\
+
+    9. a) \textit{S} is a subspace since it contains the zero vector and inherits the vector addition and scalar multiplication properties of \textit{V}. Also, the maximum number of linearly independent vectors in \textit{S} is $k$. Therefore, $\{\textbf{v}_1 ... \textbf{v}_k\}$ is a basis for \textit{S}, and \textit{S} = span$\{\textbf{v}_1 ... \textbf{v}_k\}$. It follows that \textit{S} $\subseteq$ span$\{\textbf{v}_1 ... \textbf{v}_k\}$.\\
+    b) $\{\textbf{v}_1 ... \textbf{v}_k, \textbf{x}\}$ is a linearly independent set. Thus $\lambda_1\textbf{v}_1 + ... + \lambda_k\textbf{v}_k + \lambda_{k+1}\textbf{v}_{k+1} = 0$ has only the trivial solution. But $\beta_1(\textbf{v}_1 + \textbf{x}) + ... + \beta_k(\textbf{v}_k + x)$ = 0 is equivalent to $\beta_1\textbf{v}_1 + ... + \beta_k\textbf{v}_k + (\beta_1 + ... + \beta_k)\textbf{x}$ = 0, so the latter equation must have only the trivial solution as well and hence be linearly independent.\\
+
+    10. If \textit{U} $\cap$ \textit{W} $\neq$ $\{\textbf{0}\}$, dim(\textit{U} $\cap$ \textit{W}) must be greater or equal to 1 since both \textit{U} and \textit{W} are subspaces and must contain the zero vector. If dim(\textit{U} $\cap$ \textit{W}) = 2 as well, then \textit{U} = \textit{W}, since \textit{U}'s basis has 2 linearly independent vectors, and \textit{W}'s basis contains 2 linearly independent vectors, and the set containing these four vectors is linearly dependent. But it was given in the question that\textit{U} $\neq$ \textit{W}, so dim(\textit{U} $\cap$ \textit{W}) = 1.\\
+
+    11. No\\
+    sin$^2x$ + cos$^2x$ = 1.\\
+
+    12. No\\
+    On the interval \textbf{\textit{F}}[0, 1], span$\{x, |x|\} =$ span$\{x\}$.\\
+
+    13. Since a matrix with linearly independent columns has a unique solution for every \textbf{Ax} = \textbf{b}, and \textbf{A}\textbf{0} = \textbf{0}, we conclude that \textbf{x} = \textbf{0} is the unique solution.\\
+
+    14. a) SI: \textbf{x} = \textbf{0} $\in$ \textit{W}\\
+    SII: $\textbf{u}^T\textbf{x}$ = \textbf{0} can be rewritten as $\textit{u}_1\textit{x}_1 + ... + \textit{u}_n\textit{x}_n = 0$ where $\{\textit{u}_1, ..., \textit{u}_n\}$ and $\{\textit{x}_1, ..., \textit{x}_n\}$ are the individual entries of $\textbf{u}^T$ and $\textbf{x}$ respectively. If \textbf{x}, \textbf{y} $\in$ \textit{W}, then $\textit{u}_1\textit{x}_1 + ... + \textit{u}_n\textit{x}_n = 0$ and $\textit{u}_1\textit{y}_1 + ... + \textit{u}_n\textit{y}_n = 0$, so $\textit{u}_1\textit{x}_1 + ... + \textit{u}_n\textit{x}_n + \textit{u}_1\textit{y}_1 + ... + \textit{u}_n\textit{y}_n = \textit{u}_1(\textit{x}_1 +\textit{y}_1) + ... + \textit{u}_n(\textit{x}_n + \textit{y}_n)$ = 0. But this equation can be rewritten as $\textbf{u}^T(\textbf{x} + \textbf{y})$, so $\textbf{u}^T(\textbf{x} + \textbf{y})$ = \textbf{0} for all \textbf{x}, \textbf{y} $\in$ \textit{W}.\\
+    SIII: If \textbf{x} $\in$ \textit{W}, then $\textit{u}_1\textit{x}_1 + ... + \textit{u}_n\textit{x}_n = 0$, so $\lambda(\textit{u}_1\textit{x}_1 + ... + \textit{u}_n\textit{x}_n)$ = 0 as well. But this equation can be rewritten as $\textbf{u}^T\lambda\textbf{x}$, so $\lambda\textbf{x} \in$ \textit{W} for all \textbf{x} $\in$ \textit{W}.\\
+    b) $\textbf{u}^T$ has $n$ columns, so  $n$ = rank$\textbf{u}^T$ + nullity$\textbf{u}^T$ and if \textbf{u} $\neq$ 0 then rank$\textbf{u}^T$ is always equal to 1, so nullity$\textbf{u}^T$ = dim\textit{W} = $n - 1$.\\
+    c) If $\textbf{u} \neq \textbf{0}$, then $\textbf{u}^T\textbf{u} \neq 0$ by Medici. Hence $\{\textbf{u}, \textbf{w}_1, ..., \textbf{w}_{n-1}\}$ is a linearly independent set containing $n$ vectors. But then this set is a basis for $^n\mathbb{R}$ since all of its elements are in $^n\mathbb{R}$.\\
+
+    15. Note that the equation $\lambda_1\textbf{u}_1 + ... + \lambda_5\textbf{u}_5 + \beta_1\textbf{w}_1 + ... + \beta_10\textbf{w}_{10} = 0$ is equivalent to $\lambda_1\textbf{u}_1 + ... + \lambda_5\textbf{u}_5 = -\beta_1\textbf{w}_1 + ... + -\beta_{10}\textbf{w}_{10}$. \\ But since \textit{U} $\cap$ \textit{W} = $\{\textbf{0}\}$, only the trivial solution exists since it is impossible to create linear combinations of vectors in \textit{U} out of vectors in \textit{W} and vice versa. Hence $\{\textbf{u}_1, ..., \textbf{u}_5, \textbf{w}_1, ...,  \textbf{w}_{10}\} \in \textit{V}$ is a linearly independent set containing 15 vectors, which means its span has dimension 15.\\
+
+    16. Yes\\
+    If $\{\textbf{x}\} \cup S$ is linearly dependent then \textbf{x} can be formed as a linear combination of elements in \textit{S}, so \textbf{x} $\in$ span\textit{S}.\\
+
+    18. No\\
+    Any set containing \textbf{0} is not linearly independent.\\
+
+    19. $\implies$ If $\{\textbf{v}_1, ..., \textbf{v}_n\}$ is linearly dependent, then $\sum_{\substack{i=1}}^{n} \lambda_i\textbf{v}_i = 0$ has nontrivial solutions. Therefore some $\textbf{v}_k \in \{\textbf{v}_1, ..., \textbf{v}_n\}$ exists such that $\sum_{\substack{i=1}}^{n-1} \lambda_i\textbf{v}_i$, where $i \neq k$, = $-\lambda_k\textbf{v}_k$, i.e., $\textbf{v}_k$ = $\sum_{\substack{i=1}}^{n-1} (\lambda_i/-\lambda_k)\textbf{v}_i.$\\
+  $\impliedby$ If some $\textbf{v}_k$ is a linear combination of the other members in the set, then $-\lambda_k\textbf{v}_k$ = $\sum_{\substack{i=1}}^{n-1} \lambda_i\textbf{v}_i$ where $i \neq k$ and $\lambda_i, \lambda_k$ are not all 0, so $\sum_{\substack{i=1}}^{n-1} \lambda_i\textbf{v}_i$ (where \textit{i} $\neq$ \textit{k}) + $\lambda_k\textbf{v}_k = 0$ has non-trivial solutions, i.e., the set $\{\textbf{v}_1, ..., \textbf{v}_n\}$ is linearly dependent.\\
+
+    22. Since dim$^n\mathbb{R}^{n}$ = $n^2$, and there are $n^2 + 1$ terms in this equation, nontrivial solutions exist by FTOLA.\\
+
+    23. For dim(span\textit{S}) = 3, \textit{S} must be a linearly independent set, i.e., $\lambda_1(1 + x) + \lambda_2(1 + kx + x^2) + \lambda_3(1 + 2x^2)$ = 0 must only have the trivial solution. This equation is equivalent to $(\lambda_1 + \lambda_2 + \lambda_3)1 + (\lambda_1 + k\lambda_2)x + (\lambda_2 + 2\lambda_3)x^2 = 0$, and since $\{1, x, x^2\}$ is a linearly independent set,\\
+  $\lambda_1 + \lambda_2 + \lambda_3$ = 0,\\
+  $\lambda_1 + k\lambda_2$ = 0, and\\
+  $\lambda_2 + 2\lambda_3$ = 0 are required. Solving the system of equations, we see that k = $\frac{1}{2}$ is the only value which causes this set of equations to be linearly dependent. As nontrivial solutions for $\lambda_1, \lambda_2, \lambda_3$ will exist iff the set of equations is linearly dependent, we conclude that $k \neq \frac{1}{2}$ is the only condition for dim(span\textit{S}) = 3.\\
+
+
+    24. $\implies$ If $\{\textbf{e}_1 - \textbf{v}, ..., \textbf{e}_n - \textbf{v}\}$ is a basis for \textit{V}, then $\lambda_1(\textbf{e}_1 - \textbf{v}) + ... + \lambda_n(\textbf{e}_n - \textbf{v})$ = 0 has only the trivial solution. But this equation is equivalent to $\lambda_1\textbf{e}_1 + ... + \lambda_n\textbf{e}_n = (\lambda_1 + ... + \lambda_n)\textbf{v}$ which in turn is equivalent to $\frac{\lambda_1\textbf{e}_1 + ... + \lambda_n\textbf{e}_n}{(\lambda_1 + ... + \lambda_n)}$ = \textbf{v}. If \textbf{v} = $\alpha_1\textbf{e}_1 + ... + \alpha_n\textbf{e}_n$ where $\alpha_1 + ... + \alpha_n = 1$, then infinite solutions exist for $\{\lambda_1 ... \lambda_n\}$ which means that $\{\textbf{e}_1 - \textbf{v}, ..., \textbf{e}_n - \textbf{v}\}$ cannot be a basis. Hence \textbf{v} $\neq \alpha_1\textbf{e}_1 + ... + \alpha_n\textbf{e}_n$ is required.\\
+  $\impliedby$ If \textbf{v} $\neq \alpha_1\textbf{e}_1 + ... + \alpha_n\textbf{e}_n$ (where $\alpha_1 + ... + \alpha_n = 1$), then $\frac{\lambda_1\textbf{e}_1 + ... + \lambda_n\textbf{e}_n}{(\lambda_1 + ... + \lambda_n)}$ = \textbf{v} has no nontrivial solutions, i.e., only the trivial solution exists. It follows that $\{\textbf{e}_1 - \textbf{v}, ..., \textbf{e}_n - \textbf{v}\}$ is a basis for \textit{V}.
+    \section*{Chapter 7}
+    \setlength{\parindent}{0pt}
+    1. No \\
+    rank $\le$ 4. \\
+    \\
+    2. No \\
+    rank $\le$ 7, so nullity $\ge$ 5. \\
+    \\
+    3. No \\
+    Consider $\textbf{A} = \begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}, \textbf{B} = \begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}$. \\
+    \\
+    4. Yes \\
+    n = rank\textbf{A}, so nullity\textbf{A} = 0. \\
+    \\
+    5. No \\
+    Any matrix whose columns are linearly independent has a nullity of 0. \\
+    \\
+    6. Yes \\
+    It must: rank $\le$ 34, so nullity $\ge$ 17. \\
+    \\
+    7. $\implies$ If null\textbf{A} = null\textbf{B} then rref\textbf{A} = rref\textbf{B} and so \textbf{E...EnA} = \textbf{G..GnB} for some combinations of elementary matrices \textbf{e} = \textbf{E...En} and \textbf{g} = \textbf{G...Gn}. But \textbf{A} = \textbf{$e^-1$gB}, and since \textbf{$e^-1$g} is invertible, we take \textbf{U} = \textbf{$e^-1$g} and thereby conclude \textbf{U} must exist.
+
+  $\impliedby$ If \textbf{A} = \textbf{UB}, then null\textbf{A} = null\textbf{UB}. But since \textbf{U} is invertible, null\textbf{UB} = null\textbf{B} since the only solution to any \textbf{UBx} = \textbf{0} is \textbf{Bx} = \textbf{0}, and null\textbf{B} contains all \textbf{x} such that \textbf{Bx} = \textbf{0}. Thus, null\textbf{A} = null\textbf{B}. \\
+
+    8. col\textbf{AV} = col\textbf{A} [Prop I].\\
+    Thus, rank\textbf{AV} = rank\textbf{A}, which implies nullity\textbf{AV} = nullity\textbf{A} since \textbf{A} and \textbf{V} both have \textit{n} columns. \\
+
+    9. Let \textbf{A} = $\begin{bmatrix} 1 & 2 & 4\\ -1 & 1 & -2\\ 0 & 5 & 5\\ 3 & 1 & 7\end{bmatrix}$. Then rref\textbf{A} = $\begin{bmatrix} 1 & 0 & 0\\ 0 & 1 & 0\\ 0 & 0 & 1\\ 0 & 0 & 0\end{bmatrix}$. \\
+    Taking the corresponding columns with leading ones from rref\textbf{A}, we conclude that a basis for col\textbf{A} is $\Biggl\{\begin{bmatrix} 1 \\ -1 \\ 0 \\ 3\end{bmatrix}, \begin{bmatrix} 2 \\ 1 \\ 5 \\ 1\end{bmatrix}, \begin{bmatrix} 4 \\ -2 \\ 5 \\ 7\end{bmatrix}\Biggl\}$. \\
+    \\
+
+    10. a) rref\textbf{A} = $\begin{bmatrix} 1 & 0 & 0 & -4 & -3\\ 0 & 1 & 0 & 1 & 2\\ 0 & 0 & 1 & 0 & -1\\ 0 & 0 & 0 & 0 & 0\end{bmatrix}$. \\
+    Thus a basis for row\textbf{A} is $\{\begin{bmatrix} 1 & 4 & 5 & 0 & 0\end{bmatrix}, \begin{bmatrix} 0 & 2 & 4 & 2 & 0\end{bmatrix}, \begin{bmatrix} 0 & 6 & 7 & 6 & 5\end{bmatrix}\}$. \\
+    b) Taking the corresponding columns with leading ones from rref\textbf{A}, we conclude that a basis for col\textbf{A} is $\Biggl\{\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0\end{bmatrix}, \begin{bmatrix} 4 \\ 2 \\ 6 \\ 0\end{bmatrix}, \begin{bmatrix} 5 \\ 4 \\ 7 \\ 0\end{bmatrix}\Biggl\}$. \\
+    c) By looking at rref\textbf{A}, we see that the system of equations needed to obtain solutions to \textbf{Ax} = \textbf{0} is:\\
+    x1 - 4x4 - 3x5 = 0 \\
+    x2 + x4 + 2x5 = 0 \\
+    x3 - x5 = 0 \\
+    Taking x4 and x5 as free variables, we obtain\\
+    null\textbf{A} = x4$\begin{bmatrix} 4 \\ -1 \\ 0 \\ 1 \\ 0\end{bmatrix} + x5\begin{bmatrix} 3 \\ -2 \\ 1 \\ 0 \\ 1\end{bmatrix}$ \\
+    and thus a basis for null\textbf{A} is $\Biggl\{\begin{bmatrix} 4 \\ -1 \\ 0 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix} 3 \\ -2 \\ 1 \\ 0 \\ 1\end{bmatrix}\Biggl\}$. \\
+    \\
+
+    14. a) Since \textbf{Ax} = \textbf{0}, $\textbf{A}^T\textbf{Ax}$ = \textbf{0}. \\
+    Since $\textbf{A}^T\textbf{Ax}$ = \textbf{0}, $\textbf{x}^T\textbf{A}^T\textbf{Ax}$ = $(\textbf{Ax})^T\textbf{Ax}$ = \textbf{0}, which implies \textbf{Ax} = \textbf{0} [Lemma III]. \\
+    Thus, null\textbf{A} = null$\textbf{A}^T$. \\
+    b) By the above result, we have \textit{n} - nullity\textbf{A} = rank\textbf{A} = \textit{n} - nullity$\textbf{A}^T$ = rank$\textbf{A}^T$. \\
+    \\
+    15. \textbf{LA} = \textbf{I} implies \textbf{LAx} = \textbf{0} has only \textbf{x} = \textbf{0} as a solution. \\
+    But \textbf{A} has linearly dependent columns (\textit{m} $<$ \textit{n}), which means its nullspace contains nontrivial solutions. It follows that \textbf{LAx} = \textbf{0} must also have nontrivial solutions; hence, \textbf{LA} = \textbf{I} is impossible. \\
+    \\
+    18. $\implies$ If \textbf{AB} = \textbf{O}, then \textbf{ABx} = \textbf{0} for all \textbf{Bx}, which implies that col\textbf{B} $\subseteq$ null\textbf{A}. \\
+  $\impliedby$ If col\textbf{B} $\subseteq$ null\textbf{A}, then partitioning \textbf{B} into its columns we get: \\
+    \textbf{AB} = \textbf{A}$\begin{bmatrix} $\textit{b1}$ & ... & $\textit{bn}$\end{bmatrix}$ = $\begin{bmatrix} $\textbf{A}\textit{b1}$ & ... & $\textbf{A}\textit{bn}$\end{bmatrix}$ \\
+    and $\{\textit{b1, ..., bn}\}$ $\in$ col\textbf{B} $\subseteq$ null\textbf{A} so this equation becomes $\begin{bmatrix} $\textbf{0}$ & ...  & $\textbf{0}$\end{bmatrix}$ = \textbf{O} implying that \textbf{AB} = \textbf{O}. \\
+    \\
+    21. $\implies$ If null\textbf{A} = col\textbf{A}, then rank\textbf{A} = n/2 because dimcol\textbf{A} = rank\textbf{A} and n = rank\textbf{A} + nullity\textbf{A}, so the only value which satisfies rank\textbf{A} = nullity\textbf{A} is n/2. \\
+    If null\textbf{A} = col\textbf{A}, $\textbf{A}^2$ = \textbf{O} because, partitioning \textbf{A} into its columns $\{\textit{a1, ..., an}\}$, $\textbf{A}^2$ = \textbf{A}$\begin{bmatrix} \textit{a1} & ... & \textit{an}\end{bmatrix} = \begin{bmatrix} \textbf{A}\textit{a1} & ... & \textbf{A}\textit{an}\end{bmatrix}$ which becomes $\begin{bmatrix} \textbf{0} & ... & \textbf{0}\end{bmatrix}$ = \textbf{O} since $\{\textit{a1, ..., an}\}$ $\in$ col\textbf{A} $\subseteq$ null\textbf{A}. \\
+  $\impliedby$ If $\textbf{A}^2$ = \textbf{O}, then  $\textbf{A}^{2}\textbf{x} = \textbf{0}$ for all \textbf{x}, so \textbf{A}(\textbf{Ax}) = \textbf{0} for all \textbf{x}. But this means that  col\textbf{A} $\subseteq$ null\textbf{A}, since all \textbf{b} such that \textbf{Ax} = \textbf{b} are solutions to \textbf{Ab} = \textbf{0}. As col\textbf{A} and null\textbf{A} are both subspaces of $^n\mathbb{R}$, if col\textbf{A} $\subseteq$ null\textbf{A}, we can only conclude that col\textbf{A} = null\textbf{A} if dimcol\textbf{A} = nullity\textbf{A} [Theorem VI, Chapter 6]. This is only possible if rank\textbf{A} = nullity\textbf{A}, i.e., rank\textbf{A} = n/2.
+    \section*{Chapter 8}
+    \setlength{\parindent}{0pt}
+    2. 1 + $x$ = 1(1) + 1$x$ \\
+    2 + 3x = 2(1) + 3$x$ \\
+    Taking the transpose of the coefficients, we get \textbf{T} = $\begin{bmatrix} 1 & 2\\ 1 & 3\end{bmatrix}$. \\
+
+    3. a) The standard basis of P2 is $\{ 1, x, x^2\}$. \\
+    (1/2)$x^2$ - (1/2)$x$ = 0(1)$ - (1/2)x + (1/2)x^2$ \\
+    1 - $x^2 = $1(1) + 0$x$ + (-1)$x^2$ \\
+    (1/2)$x$ + (1/2)$x^2$ = 0 + (1/2)$x$ + (1/2)$x^2$ \\
+    Taking the transpose of the coefficients, we get \textbf{T} = $\begin{bmatrix} 0 & 1 & 0\\ -1/2 & 0 & 1/2\\ 1/2 & -1 & 1/2\end{bmatrix}.$ Since rref\textbf{T} = \textbf{I}, \textit{E} is a linearly independent set in $\mathbb{P}^{2}$ containing three vectors, and hence a basis.\\
+
+    5. $2\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix} + 3\begin{bmatrix} 0 & 1\\ 0 & -1\end{bmatrix} = \begin{bmatrix} 2 & 3\\ -3 & 2\end{bmatrix} = \textit{c}\begin{bmatrix} 1 & 1\\ -1 & 1\end{bmatrix} + \textit{d}\begin{bmatrix} 1 & -1 \\ 1 & 1\end{bmatrix}$ \\
+    where $\begin{bmatrix} \textit{c}\\ \textit{d}\end{bmatrix}$ are the coordinates in \textit{F}. Solving for \textit{c} and \textit{d}, we get coordinates of $\begin{bmatrix} 5/2\\ -1/2\end{bmatrix}$.
+    \section*{Chapter 9}
+    \setlength{\parindent}{0pt}
+    1. No\\
+    det\textbf{B} = 6det\textbf{A}.\\
+
+    2. No\\
+    Consider $\begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}.$ \\
+    \\
+    3. det(2$\textbf{A}^{-1}$) = $2^n$det$\textbf{A}^{-1}$ = $2^n$/det\textbf{A} = -4\\
+    det\textbf{A} = $-(2^{n-2})$\\
+    -4 = det$\textbf{A}^3$det$\textbf{B}^{-1}$ = det\textbf{A}det\textbf{A}det\textbf{A}/det\textbf{B} = $(2^n/(-4))^3$/det\textbf{B} \\
+    det\textbf{B} = $2^{3n-8}$ \\
+
+    4. No\\
+    Consider \textbf{A} = $\begin{bmatrix} 1 & 1\end{bmatrix}$, \textbf{B} = $\begin{bmatrix} 1 \\ 0\end{bmatrix}$. \\
+
+    5. Since $\textbf{A}^2$ = -\textbf{I} and \textbf{A} is square, \\
+    det$\textbf{A}^2$ = det\textbf{A}det\textbf{A} = det(-\textbf{I}) = $(-1)^n$. \\
+    Thus, det\textbf{A} = $(-1)^{n/2}$. \\
+
+    7. $\implies$ Let $\textbf{A} \textbf{g}$ = $\begin{bmatrix} a_1 & b_1 & g_1\\a_2 & b_2 & g_2\\a_3 & b_3 & g_3\end{bmatrix}$, where $g_i$ = $-c_i$. Note that this represents matrices \textbf{A} = $\begin{bmatrix} a_1 & b_1\\a_2 & b_2\\a_3 & b_3\end{bmatrix}$ and \textbf{g} = $\begin{bmatrix} g_1\\g_2\\g_3\end{bmatrix}$ in augmented form. Also let \textbf{v} = $\begin{bmatrix} x\\y\end{bmatrix}$. For one unique solution to exist for any \textbf{g} in \textbf{Av} = \textbf{g}, it is required that rank\textbf{A} = rank\textbf{Ag} = $n$, where $n$ is the number of columns in \textbf{A}. This means that rank\textbf{Ag} must be 2, i.e. that \textbf{Ag} is singular and thus must have determinant 0. If \textbf{Ag} has determinant 0, then multiplying the third column of \textbf{Ag} by -1 will also yield a matrix (which is the matrix considered in the question) with determinant 0.\\
+  $\impliedby$ If the matrix considered in the question has determinant 0, then det\textbf{Ag} = 0, so rank\textbf{Ag} = 2 because if rank\textbf{Ag} $\neq$ 2 then rank\textbf{A} $\neq$ 2 by necessity which implies nonuniqueness of any solution (if it exists) to \textbf{Av} = \textbf{g}. If rank\textbf{Ag} = 2, then rank\textbf{A} = rank\textbf{Ag} = $n$ and we can thereby conclude that a unique solution (i.e. one single point) exists as the intersection between the three given lines for any $g_1, g_2, g_3$. Since this conclusion holds for any $g_1, g_2, g_3$, it also holds for any $c_1, c_2, c_3$.\\
+
+    9. No\\
+    Any transformation matrix \textbf{T} must be invertible, so det\textbf{T} $\neq$ 0 is required. \\
+
+    10. No\\
+    Consider \textbf{x} = $\begin{bmatrix} 1\end{bmatrix}$, \textbf{y} = $\begin{bmatrix} 1\end{bmatrix}$.\\
+
+    11. Let $\{\textit{a}_1, ..., \textit{a}_n\}$ be the rows of \textbf{A}. \\
+    Since the determinant is multilinear along the rows of \textbf{A}, $\mu^{n}$det\textbf{A} = det$\begin{bmatrix} \mu\textit{a}_1\\ \vdots \\ \mu\textit{a}_n\end{bmatrix}$ = det$\mu$\textbf{A}.\\
+
+    13. Yes \\
+    If \textbf{A} is symmetric, then $\textbf{C}^T$ = \textbf{C} = adj\textbf{A}.\\
+
+    14. Yes\\
+    Let \textbf{A} = $\begin{bmatrix}a&b\\c&d\end{bmatrix}$. Then (tr\textbf{A})\textbf{I} - \textbf{A} = $\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$ = adj\textbf{A}.\\
+
+    18. $\implies$ If \textbf{A} is invertible, $\textbf{A}^{-1}\textbf{A}$adj$\textbf{A} = \textbf{A}^{-1}$(det\textbf{A})\textbf{I}, so adj\textbf{A} = $\textbf{A}^{-1}$det\textbf{A}. Since $\textbf{A}^{-1}$det\textbf{A} is always invertible if det\textbf{A} $\neq$ 0, adj\textbf{A} must also be invertible.\\
+  $\impliedby$ If adj\textbf{A} is invertible, \textbf{A}adj\textbf{A}(adj$\textbf{A})^{-1}$ = (det\textbf{A})\textbf{I}(adj$\textbf{A})^{-1}$, so \textbf{A} = (det\textbf{A})(adj$\textbf{A})^{-1}$. If \textbf{A} is not invertible, det\textbf{A} = 0 and so the only solution to this equation is \textbf{A} = \textbf{O}. But it was given that \textbf{A} $\neq$ \textbf{O}, so \textbf{A} must also be invertible.
+    \section*{Chapter 10}
+    \setlength{\parindent}{0pt}
+    1. Yes\\
+    Since all of \textbf{A}'s eigenvalues are 0, $\textbf{S}^{-1}\textbf{AS} = \textbf{O}$. Multiplying both sides by \textbf{S} on the left and then $\textbf{S}^{-1}$ on the right, we get \textbf{A} = \textbf{O}.\\
+
+    2. Yes\\
+  $\textbf{A}^k$ = \textbf{O} implies that det\textbf{A} = 0, since det($\textbf{A}^k$) = (det$\textbf{A})^k$ = 0. But then \textbf{A} is not invertible, so null\textbf{A} = null($\textbf{A} - 0\textbf{I}$) contains nonzero vectors. Since $\lambda$ = 0 has nonzero eigenvectors, it is an eigenvalue of \textbf{A}.\\
+
+    3. No\\
+    Since $c_{\textbf{A}}(\lambda)$ = $\lambda^{2}$ - 3$\lambda$ + 2 = $\lambda^{2}$ - (tr$\textbf{A}$)$\lambda$ + det$\textbf{A}$, tr\textbf{A} = 3.\\
+
+    4. Yes\\
+    If \textbf{x} is a solution to \textbf{Ax} = $\lambda$\textbf{x}, then (\textbf{A + I})\textbf{x} = $\lambda$\textbf{x} + \textbf{x} and so the eigenvectors of \textbf{A} and \textbf{A} + \textbf{I} are the same.\\
+
+    5. Yes\\
+    If \textbf{x} is a solution to \textbf{Ax} = $\lambda$\textbf{x}, then $\textbf{A}^2\textbf{x}$ = $\lambda^2\textbf{x}$ and so the eigenvectors of \textbf{A} and $\textbf{A}^2$ are the same.\\
+
+    7. Yes\\
+    Since \textbf{A} is diagonalizable, the sum of the dimensions of all its eigenspaces must be equal to $n$. Thus $\textit{E}_d$, the eigenspace corresponding to $\lambda = d$, must be equal to $n$, and since $\textit{E}_d$ = null($d\textbf{I} - \textbf{A}$), we have by the Rank-Nullity theorem that rank($d\textbf{I} - \textbf{A}$) = 0.\\
+
+    10. Yes\\
+    If \textbf{A} does not have 0 as an eigenvalue, then $\textit{E}_0$ = null(\textbf{A} - 0\textbf{I}) = null\textbf{A} must have a dimension of 0 since the eigenspace associated with $\lambda$ = 0 contains no eigenvectors. nullity\textbf{A} = 0 is equivalent to \textbf{A} being invertible, i.e., a product of elementary matrices. \\
+
+    12. If det\textbf{A} = 0, det(\textbf{A}adj\textbf{A}) = 0.\\
+    If det\textbf{A} $\neq$ 0, \textbf{A} is invertible, so adj\textbf{A} = $\textbf{A}^{-1}($det$\textbf{A})\textbf{I}$\\
+    det(adj\textbf{A}) = det($\textbf{A}^{-1}$(det$\textbf{A})\textbf{I})$ = (det$\textbf{A})^n$/det\textbf{A} = (det\textbf{A})$^{n-1}$\\
+
+    13. a) rank\textbf{A} = 1, nullity\textbf{A} = 3\\
+    b) Since $\textit{E}_0$ = null\textbf{A}, $\lambda = 0$ exists and its eigenspace has dimension 3.\\
+    c) Since $c_{\textbf{A}}(\lambda) = \lambda^3(\lambda - 4)$, another eigenvalue of \textbf{A} is $\lambda = 4$.\\
+
+    17. a) \textbf{A}adj\textbf{A} = (det\textbf{A})\textbf{I} = (det$\textbf{A}^T)\textbf{I}$ = $\textbf{A}^T$adj$\textbf{A}^T$\\
+    b) $\implies$ If \textbf{A} is invertible, det\textbf{A} $\neq$ 0, so $\textbf{A}^T$adj$\textbf{A}^T$ = (det\textbf{A})\textbf{I}\\
+  $\textbf{A}^T$(adj$\textbf{A}^T$/det$\textbf{A}$) = \textbf{I} which menas $\textbf{A}^T$ has an inverse, adj$\textbf{A}^T$/det$\textbf{A}$.\\
+  $\impliedby$ If $\textbf{A}^T$ is invertible, det$\textbf{A}^T$ $\neq$ 0, so \textbf{A}adj\textbf{A} = (det$\textbf{A}^T$)\textbf{I}\\
+    \textbf{A}(adj\textbf{A}/det$\textbf{A}^T$) = \textbf{I} which means \textbf{A} has an inverse, adj\textbf{A}/det$\textbf{A}^T$.\\
+
+    20. Note that at least two of the $\lambda_i$'s must be equal or else there are more distinct eigenvalues than columns of \textbf{A}. Since 2 linearly independent vectors are in the repeated eigenvalue's eigenspace, this eigenspace has dimension 2. But then the other eigenvalue is not an eigenvalue if it is different from the two $\lambda_i$'s, since then its eigenspace would have dimension 0. Thus, all three $\lambda_i$'s are equal (call it $\lambda$), and since $\lambda$'s eigenspace has dimension 2, all \textbf{x} $\in$ $^2\mathbb{R}$  are solutions to the equation \textbf{Ax} = $\lambda\textbf{x}$.
+\end{document}
