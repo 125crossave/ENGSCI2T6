@@ -1,0 +1,148 @@
+\documentclass[answers]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage[all]{xy}
+\usepackage{amsmath,amsthm,amssymb, graphicx, multicol, array}
+\usepackage{amsmath,amsthm,amssymb,color,latexsym}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\newtheorem{problem}{Part}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\definecolor{nr}{RGB}{122, 0, 0}
+\definecolor{opp}{RGB}{245, 211, 165}
+\footer{}{\thepage}{}
+\begin{document}
+\pagecolor{opp}
+\noindent \textbf{NMC268: Data Science Applications to Archaeology}\hfill Assignment \#4\\
+\color{nr}125crossave\color{black}
+
+\hrulefill
+
+
+\begin{problem}
+\textbf{Mapping}
+\end{problem}
+\begin{parts}
+    \part{\textit{Import the Mathers csv dataset into R, and familiarize yourself with its contents.}}
+
+    \color{nr}\quad\quad Code for this is in the attached R file.
+
+   \color{black}\part{\textit{How many archaeological sites are represented in the dataset? What other variables are represented in the dataset?}}
+
+   \color{nr}\quad\quad There are 62 archaeological sites and 14 variables in the dataset; info about these variables is shown in the table.
+\color{nr}
+ \begin{center}
+     \begin{tabularx}{0.8\textwidth} {
+  | >{\centering\arraybackslash}X
+  | >{\centering\arraybackslash}X | }
+ \hline
+ \textbf{Variable Name} & \textbf{Data Type} \\
+ \hline
+ FID & int \\
+ \hline
+ Site\_Name & chr\\
+ \hline
+ Paleo & logi\\
+ \hline
+ Neolithic & chr\\
+  \hline
+ Chalco & chr\\
+  \hline
+ EBA & chr\\
+  \hline
+ MBA & chr\\
+ \hline
+ LBA & chr\\
+  \hline
+ Iron\_Age & chr\\
+  \hline
+ Persian & logi\\
+  \hline
+ POINT\_X & num\\
+  \hline
+ POINT\_Y & num\\
+  \hline
+ Latitude & num\\
+  \hline
+ Longitude & num\\
+ \hline
+\end{tabularx}
+\end{center}
+  \color{black} \part{\textit{What coordinate system are the site coordinates presented in? How will you define the Coordinate Reference System for this dataset?}}
+
+\color{nr}\quad\quad The site coordinates are presented in terms of their longitude and latitude; as such, I will use the WGS84 CRS for this dataset since it is commonly used to perform analysis on sites defined by their longitude+latitude and therefore seems like a good fit for this assignment.
+\color{black}\part{\textit{Use the coordinates for the sites that are provided in the csv file to create a spatial data type for
+the survey dataset that you can use for mapping. Assign an appropriate Coordinate Reference System to the data.}}
+
+\color{nr}\quad\quad Code for this is in the attached R file; a \textbf{vector} data type was created for the dataset. The WGS84 CRS was assigned to the data for the reasons mentioned in (c).
+
+\color{black}\part{\textit{Load the shapefile of the Aleppo governorate that was provided with the assignment. Load the
+shapefile of the Qoueiq River that was provided with the assignment (river.shp). Also load the GTOPO data that was provided as part of our Mapping tutorial.}}
+
+\color{nr}\quad\quad Code for this is in the attached R file.
+\color{black}\part{\textit{Use the Aleppo shapefile to crop the GTOPO DEM.}}
+
+\color{nr}\quad\quad Code for this is in the attached R file.
+\color{black}\part{\textit{Create a map that plots the archaeological site locations and the Qoueiq River on top of the cropped version of the DEM from 1(f). Export this map to an image file or pdf and include it with your submission.}}
+
+\color{nr}\quad\quad Code for this is in the attached R file. The map is shown in part (i).
+\color{black}\part{\textit{Extract from the dataset only the sites that date to the Early Bronze Age (EBA). Recreate and the map from 1(g) above using this dataset and export it as above. Repeat to create two more maps with: 1) sites dating to the Chalcolithic period (Chalco) and 2) sites dating to the Neolithic period.}}
+
+\quad\quad\color{nr}Code for this is in the attached R file. The maps are shown in part (i).
+\color{black}\part{\textit{Visually compare the site distributions in these maps. What do you notice about the spatial distribution of the sites in different period?}}
+\color{black}
+\begin{center}
+    \begin{tabular}{ccc}
+   \fbox{\includegraphics[scale = 0.5]{a43a.png}}  \fbox{\includegraphics[scale = 0.5]{a42a.png}} \end{tabular}\color{nr}
+\end{center}\color{nr}
+\color{black}\begin{center}
+     \fbox{\includegraphics[scale = 0.6]{a41a.png}}
+\end{center}\color{nr}
+
+\color{nr}\quad\quad As time progressed, it appears that the sites began to spread out to different locations instead of \textit{all} remaining clustered around the most northernmost part of the Qoueiq river. Also, new sites generally moved down the river between the Neolithic and Chalcolithic ages, and then began to spread outwards on both sides of the river between the Chalcolithic and Early Bronze age.
+
+\quad\quad Overall, it appears that the difference in spatial distribution between the Chalcolithic and Early Bronze age was much greater than the difference between the Neolithic and Chalcolithic, as the change in both the total number of sites and their mean distance relative to each other appeared to increase significantly between the former ages.
+\end{parts}
+
+\color{black}
+\begin{problem}
+\textbf{Spatial Analysis}
+\end{problem}
+\begin{parts}
+    \part{\textit{Extract from the dataset only the sites that date to the Early Bronze Age (EBA). Use the coordinates provided in the csv file to create a data format that you can analyze using the spatstat package.}}
+
+    \color{nr}\quad\quad Code for this is in the attached R file. The data was converted to Planar Point Pattern (ppp) format since this is the primary data type for spatstat.
+
+    \color{black}\part{\textit{Create a window for analysis using the same method we did in our tutorial. Use a buffer of 0.1 degree around the edges of the maximum and minimum survey coordinates.}}
+
+\color{nr}\quad\quad Code for this is in the attached R file. The survey coordinates were Longitude for the $x$-axis and Latitude for the $y$-axis.
+
+\color{black}\part{\textit{Use the results from 2(a) and 2(b) to conduct quadrat analysis on the Early Bronze Age sites. Report the results of the quadrat analysis test. What is the null hypothesis in this case and what do the results of your quadrat analysis tell you?}}
+
+\quad\quad\color{nr} Using quadrat analysis (via the quadrat.test R function) on $5\times5$, $10\times10$, and $20\times20$ square quadrats, it was found that the $p$-values for these three quadrats were $p = 1.387\times10^{-6}$, $p = 7.968\times10^{-8}$, and $p = 0.01733$ respectively---these values are lower than the 0.05 required to accept the null hypothesis of the sites being completely randomly spatially distributed. Therefore, the results of the analysis show that archaeological sites from the Early Bronze Age are not completely randomly spatially distributed within the Aleppo governorate.
+
+\color{black}\part{\textit{Use the results from 2(a) to conduct Nearest Neighbour Analysis. Report the Nearest Neighbour Index that is produced. What does this tell you about the distribution of sites from the Early Bronze Age?}}
+
+\quad\quad\color{nr}Using the formula NNI $ = \frac{M_n}{0.5\sqrt{\frac{A}{n}}}$, where $M_n$ is the mean distance between $n$ sites and $A$ is the area of the space these sites occupy, it was found that the NNI during the Early Bronze Age for archeological sites within the Aleppo governorate was 0.716. This means that these sites tend to be clustered together, since an NNI less than 1 indicates clustering while an NNI greater than 1 indicates dispersion.
+
+\color{black}\part{\textit{Repeat parts 2(a) through 2(d) with sites dating to the Chalcolithic (Chalco).}}
+
+\quad\quad\color{nr}Code for this is in the attached R file. For part 2(c), the same size and shape of quadrats were used, with the result being that $p$-values of 0.002004, 0.000177, and 0.005801 respectively were obtained, suggesting that the spatial distribution of archaelogical sites within the Aleppo governorate was not completely random during the Chalcolithic age since all values were less than 0.05. For part 2(d), an NNI of 0.677 was obtained, which suggests that the sites within Aleppo also tended toward clustering during the Chalcolithic age.
+
+\color{black}\part{\textit{Repeat parts 2(a) through 2(d) with sites dating to the Neolithic.}}
+
+\quad\quad\color{nr}Code for this is in the attached R file. For part 2(c), the same size and shape of quadrats were used, with the result being that $p$-values of $6.633\times10^{-5}$, 0.000108, and 0.01497 respectively were obtained, suggesting that the spatial distribution of archaelogical sites within the Aleppo governorate was not completely random during the Neolithic age since all values were less than 0.05. For part 2(d), an NNI of 0.636 was obtained, which suggests that the sites within the Aleppo governorate also tended toward clustering during the Neolithic age.
+
+\color{black}\part{\textit{Compare the results you have obtained for the Neolithic period vs. the Chalcolithic period vs. the Early Bronze Age. What do the results of your analyses suggest about the distribution of sites in the two periods compared to each other? Use the dates for the periods provided above to discuss possible changes in site distribution over time.}}
+
+\quad\quad\color{nr}In Part 2, it was found that the $p$-values from the quadrat tests generally decreased over time, while the NNI increased. The increase in NNI (i.e. increase in dispersion) over time $(0.636\longrightarrow0.677\longrightarrow0.716)$ corroborates the visuals generated in Part 1, since it was shown there that the distribution of archaeological sites tended to become more spread out over time instead of staying clustered around the same/similar locations.
+
+\quad\quad The increase in dispersion can be explained by the development of bronze tools and writing during the EBA---with these innovations, it became much easier for people to hunt animals, thereby improving hunting efficiency near the northernmost part of the Qoueiq river (where most people initially lived); this in turn caused the number of animals (per person) in this region to decrease, which forced people out to other locations in search of more profitable hunting grounds.
+
+\quad\quad The decrease in $p$-value of the $5^2$ and $10^2$ quadrats seems to suggest that the likelihood of the sites being randomly distributed became lower over time---this makes sense in the context of historical development, because it seems that as societies grow in population and their way of living becomes technologically advanced, the competition between individuals for resources and living space would increase, thereby requiring people to become more "intentional" (i.e. \textit{less random/haphazard}) when searching for land to build houses and communities on.
+
+\quad\quad
+\end{parts}
+\end{document}
