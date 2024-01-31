@@ -1,0 +1,117 @@
+% ***********************************************************
+% ******************* PHYSICS HEADER ************************
+% ***********************************************************
+% Version 2
+\documentclass[12pt]{article}
+\usepackage{amsmath} % AMS Math Package
+\usepackage{amsthm} % Theorem Formatting
+\usepackage{amssymb}    % Math symbols such as \mathbb
+\usepackage{graphicx} % Allows for eps images
+\usepackage[dvips,letterpaper,margin=1in,bottom=0.7in]{geometry}
+\usepackage{tensor}
+ % Sets margins and page size
+\usepackage{amsmath}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\usepackage{enumerate}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
+ \right)_{#3}} % for thermodynamic partial derivatives
+\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
+ \left. #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+ #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+\providecommand{\wave}[1]{\v{\tilde{#1}}}
+\providecommand{\fr}{\frac}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\seq}{\subseteq}
+\providecommand{\e}{\epsilon}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{p}{Problem}[section]
+\usepackage{cancel}
+\newtheorem*{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem*{dfn}{Definition}
+ \newenvironment{s}{%\small%
+        \begin{trivlist} \item \textbf{Solution}. }{%
+            \hspace*{\fill} $\blacksquare$\end{trivlist}}%
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
+
+\begin{document}
+\section*{Question 1}\LARGE\pagestyle{empty}
+a) Letting $A = \begin{pmatrix}
+    a &b\\
+    c & d
+\end{pmatrix}$, where $a,b,c,d \in \textbf{R}$, we have
+
+$$Av_1 = \lambda_1v_1 \implies \begin{pmatrix}
+    a & b\\
+    c & d
+\end{pmatrix}\begin{pmatrix}
+    1\\
+    -1
+\end{pmatrix}=\begin{pmatrix}
+    1\\
+    -1
+\end{pmatrix}$$$$Av_2 = \lambda_2v_2 \implies \begin{pmatrix}
+    a & b\\
+    c & d
+\end{pmatrix}\begin{pmatrix}
+    -2\\
+    1
+\end{pmatrix}=-2\begin{pmatrix}
+    -2\\
+    1
+\end{pmatrix}$$
+which yields the systems of equations $a - b = 1, -2a + b = 4$ and $c - d = -1, -2c + d = -2$. Solving these we obtain $a = -5, b = -6, c = 3, d = 4$ so that $$A = \begin{pmatrix}
+    -5 &-6\\
+    3 & 4
+\end{pmatrix}$$
+
+\noindent b) Suppose $A$ is not unique, i.e. that $A_i, A_j$ $\in M_{2\times2}(\textbf{R})$ exist s.t. $A_i \neq A_j$ and $$A_iv_1 = \lambda_1v_1, A_jv_1 = \lambda_1v_1, A_iv_2 = \lambda_2v_2, A_jv_2 = \lambda_2v_2$$Then $(A_i - A_j)v_1 = (\lambda_1 - \lambda_1)v_1 = (A_i - A_j)v_2 = (\lambda_2 - \lambda_2)v_2 = 0$, so $v_1, v_2 \in$ null$(A_i - A_j)$. But, since $v_1$ and $v_2$ are linearly independent vectors, this means dim null$(A_i - A_j) = 2$, i.e. rank$(A_i - A_j)$ = 0 by the rank-nullity theorem (since dim $\textbf{R}^2$ = dim null$(A_i - A_j)$ + rank$(A_i - A_j)$). This is only possible if $A_i - A_j = O$, i.e. $A_i = A_j$. Thus a contradiction arises from our assumption that $A_i \neq A_j$ and it follows that $A$ must be unique.
+\newpage
+\noindent c) Plugging in $A$, we find that $$A^3 - A^2 + 3I = \begin{pmatrix}
+    -21 &-24\\
+    12 & 15
+\end{pmatrix}$$Denote this matrix \textit{Q}. The eigenvalues are the roots of $det(Q - \lambda I)$: $$0 = (-21 - \lambda)(15 - \lambda) - (-24)(12)\implies \lambda = 3, -9$$Eigenvectors of $Q$ are $v\neq 0$ such that $Qv = 3v$ or $Qv = -9v$. Let $v$ satisfying the former case be $v_1$ and $v$ satisfying the latter be $v_2$. Then $v_1\in$ null$(Q-3I)$ and $v_2 \in$ null$(Q + 9I)$. Letting $v_1 = \begin{pmatrix}
+    a\\
+    b
+\end{pmatrix}$, $v_2 = \begin{pmatrix}
+    c\\
+    d
+\end{pmatrix}$, we find that the systems of equations $-24a - 24b = 0$, $12a + 12b = 0$ and $-12c - 24d = 0$, $12c + 24d = 0$ must be satisfied. Then $a = -b$ and $c = -2d$, so taking $b$ and $d$ respectively as the free variables we have $$v_1 = \begin{pmatrix}
+    -1\\
+    1
+\end{pmatrix}, v_2 = \begin{pmatrix}
+    -2\\
+    1
+\end{pmatrix}$$
+\end{document}
