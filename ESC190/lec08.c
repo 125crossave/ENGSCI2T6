@@ -64,7 +64,7 @@ int main(){
     //strcpy(s2, s1); not legal yet, since cannot copy to address s2
     //same as s2[0] = s1[0], s2[1] = s1[1], etc.
     //need to use malloc:
-    s2 = (char*)malloc(sizeof(char)*strlen(s1) + 1);
+    s2 = (char*)malloc(sizeof(char)*strlen(s1) + 1);//need to put +1 to account for null character at end of string
 
 
     int a = 42; int* p_a = &a; set_to_0(&p_a); //p_a is now 0, a is not affected
