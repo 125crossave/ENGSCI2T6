@@ -1,0 +1,71 @@
+% ***********************************************************
+% ******************* PHYSICS HEADER ************************
+% ***********************************************************
+% Version 2
+\documentclass[12pt]{article}
+\usepackage{amsmath} % AMS Math Package
+\usepackage{amsthm} % Theorem Formatting
+\usepackage{amssymb}    % Math symbols such as \mathbb
+\usepackage{graphicx} % Allows for eps images
+\usepackage[dvips,letterpaper,margin=1in,bottom=0.7in]{geometry}
+\usepackage{tensor}
+ % Sets margins and page size
+\usepackage{amsmath}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\usepackage{enumerate}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
+ \right)_{#3}} % for thermodynamic partial derivatives
+\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
+ \left. #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+ #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+\providecommand{\wave}[1]{\v{\tilde{#1}}}
+\providecommand{\fr}{\frac}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\seq}{\subseteq}
+\providecommand{\e}{\epsilon}
+
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{p}{Problem}[section]
+\usepackage{cancel}
+\newtheorem*{lem}{Lemma}
+\theoremstyle{definition}
+\newtheorem*{dfn}{Definition}
+ \newenvironment{s}{%\small%
+        \begin{trivlist} \item \textbf{Solution}. }{%
+            \hspace*{\fill} $\blacksquare$\end{trivlist}}%
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
+
+\begin{document}\pagestyle{empty}
+\section*{Question 2}\Large
+We require an $N \in \textbf{N}$ s.t. $$b_n = |\frac{a_1 + a_2 + ... + a_n}{n} - a| < \epsilon$$ for all $n\geq N$ and $\epsilon > 0$. Note that $a = \frac{na}{n}$, so the inequality simplifies to $$b_n = |\frac{(a_1 - a) + (a_2 - a) + ... + (a_n - a)}{n}| < \epsilon$$ and by the triangle inequality, we get $$b_n\leq|\frac{a_1 - a}{n}| + |\frac{a_2 - a}{n}| + ... + |\frac{a_n - a}{n}|=$$$$\frac{1}{n}(|a_1 - a| + |a_2 - a| + .... +|a_{\mathcal{N}}-a| + |a_{\mathcal{N}+1}-a| + ... + |a_n - a|) = c_n$$ with the last simplification coming because $\lim_{n\to\infty}a_n = a$, i.e. there exists $\mathcal{N}\in \textbf{N}$ s.t. $|a_n - a| < \epsilon$ for all $n \geq\mathcal{N}, \epsilon > 0$. All convergent sequences must be bounded by some finite number; as such $a_n$ is bounded by some finite $M$ and it follows that we can bound $c_n$ by choosing $$C = \frac{|M - a|(\mathcal{N})}{n} + \frac{(n-\mathcal{N})\frac{\epsilon}{k}}{n}\geq c_n$$ where $k > 1$ is an arbitrary constant. Observe we can select $\mathfrak{N}\in \textbf{N}$ s.t.$\epsilon(1-\frac{1}{k}) > \frac{|M - a|(\mathcal{N})}{\mathfrak{N}}$ because $\mathcal{N}, M, a$ are fixed. Now consider $\mathcal{M}$ = MAX($\mathcal{N}, \mathfrak{N}$). For all $n\geq \mathcal{M},$ $b_n \leq c_n \leq C = \frac{|M - a|(\mathcal{N})}{n} + \frac{(n-\mathcal{N})\frac{\epsilon}{k}}{n}<\epsilon(1 - \frac{1}{k}) + \frac{\epsilon}{k} = \epsilon \forall \epsilon > 0$, which means $N = \mathcal{M}$ meets the requirements we imposed at the beginning of this proof. Hence we have proven that $$\lim_{n\to\infty}\frac{a_1+a_2+...+a_n}{n} = a$$ by using the definition of the limit.
+\end{document}
